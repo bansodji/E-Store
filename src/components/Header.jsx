@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { IoHeartOutline, IoCartOutline, IoSearchOutline, IoChevronDown } from "react-icons/io5";
 import Badge from './Badge';
 import { NavListOutline, NavListSolid } from '../data/HeaderData';
+import ThemeSwitch from './ThemeSwitch';
 
 const Wrapper = styled.header`
     z-index: 999;
@@ -50,12 +51,9 @@ const Header = () => {
         return (
             <div className='border-bottom'>
                 <div className="container">
-                    <div className="d-flex justify-content-between pt-2">
-                        <div className='d-none d-md-block'>
-                            <a className='font13 font-400'>Welcome to E-Store!</a>
-                        </div>
-                        <ul className='font13 d-flex'>
-                            <li className='mx-2'>
+                    <div className="d-flex justify-content-between align-items-center">
+                        <ul className='font13 d-flex align-items-center'>
+                            <li className='me-2 pt-3'>
                                 <div className='ip-hover-select'>
                                     <button>Language <IoChevronDown /></button>
                                     <ul className='options'>
@@ -64,14 +62,10 @@ const Header = () => {
                                     </ul>
                                 </div>
                             </li>
-                            <li className='mx-2'>
-                                <div className='ip-hover-select'>
-                                    <button>Currency <IoChevronDown /></button>
-                                    <ul className='options'>
-                                        <li>INR</li>
-                                        <li>USD</li>
-                                    </ul>
-                                </div>
+                        </ul>
+                        <ul className='font13 d-flex align-items-center'>
+                            <li className='ms-2'>
+                                <ThemeSwitch />
                             </li>
                             <li className='ms-2'>
                                 <Link to="/Signin" className='hover1 font-400'>Sign in / Register</Link>

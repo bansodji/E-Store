@@ -5,6 +5,10 @@ import { SmButton, TransparentButton } from '../styles/Buttons';
 const Container = styled.div`
     width: 100%;
     height: 80vh;
+
+    .heading_{
+        color: ${({ theme }) => theme.colors.black_};
+    }
 `;
 
 const Box = styled.div`
@@ -55,7 +59,7 @@ const Hero = () => {
                 <div className='box-overlay px-4'>
                     <div>
                         <SmButton>SUM-21</SmButton>
-                        <h1 className='my-4 display-1 font-600'>SS-2021<br/>
+                        <h1 className='my-4 display-1 font-600 heading_'>SS-2021<br/>
                         Top Trending</h1>
                         <TransparentButton>Shop Now</TransparentButton>
                     </div>

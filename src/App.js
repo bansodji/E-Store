@@ -20,9 +20,10 @@ const App = () => {
       text: "#1d2127",
       white: "#fff",
       black: "#000",
+      black_: "#1d2127",
       gold: "#BE9E44",
       gold_: "#9964151c",
-      sun: "#feca57",
+      sun: "#FDB813",
       moon: "#2c3e50",
       active: "#000",
       footer: "#101317",
@@ -61,9 +62,10 @@ const App = () => {
       text: "#aaaeb6",
       white: "#fff",
       black: "#000",
+      black_: "#1d2127",
       gold: "#BE9E44",
       gold_: "#9964151c",
-      sun: "#f5f6fa",
+      sun: "#FDB813",
       moon: "#f5f6fa",
       active: "#fff",
       footer: "#101317",
@@ -88,7 +90,7 @@ const App = () => {
     }
   }
 
-  const [theme, setTheme] = useState(light);
+  const [theme, setTheme] = useState(dark);
 
   return (
     <ThemeProvider theme={theme}>

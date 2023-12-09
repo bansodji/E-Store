@@ -25,8 +25,6 @@ export const TransparentButton = styled.button`
       letter-spacing: 2px;
       font-size: 1rem;
       font-weight: 300;
-
-
       border: 1px solid ${({ theme }) => theme.colors.black};
       z-index: 1;
       color: ${({ theme }) => theme.colors.black};
