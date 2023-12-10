@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/GlobalStyle';
 import Header from './components/Header';
+import { useSelector } from 'react-redux';
 
 const App = () => {
 
-  const light = {
+  const lightTheme = {
     colors: {
       theme1: "#fb5d5c",
       theme2: "#fab75d",
@@ -48,7 +49,7 @@ const App = () => {
     }
   }
 
-  const dark = {
+  const darkTheme = {
     colors: {
       theme1: "#f1584a",
       theme2: "#fab75d",
@@ -90,7 +91,12 @@ const App = () => {
     }
   }
 
-  const [theme, setTheme] = useState(dark);
+  const isLight = useSelector(state => state.theme);
+  const [theme, setTheme] = useState(isLight ? lightTheme : darkTheme);
+
+  useEffect(() => {
+    setTheme(isLight ? lightTheme : darkTheme);
+  }, [isLight]);
 
   return (
     <ThemeProvider theme={theme}>

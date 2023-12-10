@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { BiSolidSun, BiSolidMoon } from "react-icons/bi";
+import { useSelector, useDispatch } from 'react-redux';
+import { changeTheme } from '../redux/slices/themeSlice';
 
 const Wrapper = styled.div`
     padding: 3px 1px;
@@ -16,21 +18,22 @@ const Container = styled.button`
     position: relative;
     background-color: ${({ theme }) => theme.colors.body};
     z-index: 1;
-    
-    svg{
+
+    svg {
         font-size: 1.1rem;
         margin: 0 4px;
         text-align: center;
         color: ${({ theme }) => theme.colors.heading};
-        transition: left 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out;
     }
 
-    .active{
-        color: ${({ theme }) => theme.colors.theme1};
+    .sun {
+        color: ${({ theme }) => theme.colors.sun};
     }
 
-    .sun{color: ${({ theme }) => theme.colors.sun};}
-    .moon{color: ${({ theme }) => theme.colors.moon};}
+    .moon {
+        color: ${({ theme }) => theme.colors.moon};
+    }
 `;
 
 const Slide = styled.div`
@@ -39,34 +42,29 @@ const Slide = styled.div`
     background-color: ${({ theme }) => theme.colors.surface};
     position: absolute;
     top: 0;
-    left: ${({ light }) => (light ? '2%' : '48%')};
+    left: ${({ $isLight }) => ($isLight ? '2%' : '48%')};
     transition: left 0.2s ease-in-out;
     z-index: -1;
     border-radius: 6px;
 `;
 
 const ThemeSwitch = () => {
-    const [light, setLight] = useState(true);
+    const isLight = useSelector(state => state.theme);
+    const dispatch = useDispatch();
 
     const handleSwitch = () => {
-        setLight(!light);
+        dispatch(changeTheme());
     };
 
     return (
         <Wrapper>
             <Container onClick={handleSwitch}>
-                <BiSolidSun
-                    // className={light ? "active" : ""}
-                    className="sun"
-                />
-                <BiSolidMoon
-                    // className={light ? "" : "active"}
-                    className="moon"
-                />
-                <Slide light={light} />
+                <BiSolidSun className="sun" />
+                <BiSolidMoon className="moon" />
+                <Slide $isLight={isLight} />
             </Container>
         </Wrapper>
-    )
-}
+    );
+};
 
 export default ThemeSwitch;

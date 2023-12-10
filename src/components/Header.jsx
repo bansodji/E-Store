@@ -5,6 +5,8 @@ import { IoHeartOutline, IoCartOutline, IoSearchOutline, IoChevronDown } from "r
 import Badge from './Badge';
 import { NavListOutline, NavListSolid } from '../data/HeaderData';
 import ThemeSwitch from './ThemeSwitch';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeLang } from '../redux/slices/langSlice';
 
 const Wrapper = styled.header`
     z-index: 999;
@@ -43,29 +45,44 @@ const BottomNavLinks = styled.div`
     }
 `;
 
+const Language = ["INR", "USD"];
+
 const Header = () => {
     const NavItem = Object.keys(NavListOutline);
     const location = useLocation();
 
+    const lang = useSelector(state => state.lang);
+    const isLight = useSelector(state => state.theme);
+    const dispatch = useDispatch();
+
     const TopNav = () => {
         return (
-            <div className='border-bottom'>
+            <div className={`border-bottom ${isLight?"border-muted": "border-secondary"}`}>
                 <div className="container">
                     <div className="d-flex justify-content-between align-items-center">
                         <ul className='font13 d-flex align-items-center'>
-                            <li className='me-2 pt-3'>
-                                <div className='ip-hover-select'>
-                                    <button>Language <IoChevronDown /></button>
-                                    <ul className='options'>
-                                        <li>English</li>
-                                        <li>Hindi</li>
-                                    </ul>
-                                </div>
+                            <li className=''>
+                                <ThemeSwitch />
                             </li>
                         </ul>
                         <ul className='font13 d-flex align-items-center'>
-                            <li className='ms-2'>
-                                <ThemeSwitch />
+                            <li className='me-2 pt-3'>
+                                <div className='ip-hover-select'>
+                                    <button>Currency <IoChevronDown /></button>
+                                    <ul className='options'>
+                                        {
+                                            Language.map((data, index) => (
+                                                <li
+                                                    key={index}
+                                                    onClick={() => { dispatch(changeLang(data)) }}
+                                                    className={`${lang === data ? "active" : ""}`}
+                                                >
+                                                    {data}
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
+                                </div>
                             </li>
                             <li className='ms-2'>
                                 <Link to="/Signin" className='hover1 font-400'>Sign in / Register</Link>

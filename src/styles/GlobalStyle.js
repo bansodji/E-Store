@@ -109,6 +109,10 @@ ul{
   -webkit-text-fill-color: transparent;
 }
 
+.gradient-bg {
+  background-image: linear-gradient(to right, ${({ theme }) => theme.colors.theme1}, ${({ theme }) => theme.colors.theme2});
+}
+
 .heading{
     color: ${({ theme }) => theme.colors.heading};
 }
