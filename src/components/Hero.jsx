@@ -4,7 +4,6 @@ import { SmButton, TransparentButton } from '../styles/Buttons';
 
 const Container = styled.div`
     width: 100%;
-    height: 80vh;
 
     .heading_{
         color: ${({ theme }) => theme.colors.black_};

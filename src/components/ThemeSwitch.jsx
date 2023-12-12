@@ -24,7 +24,7 @@ const Container = styled.button`
         margin: 0 4px;
         text-align: center;
         color: ${({ theme }) => theme.colors.heading};
-        transition: color 0.3s ease-in-out;
+        transition: color 0.4s ease-in-out;
     }
 
     .sun {
@@ -43,7 +43,7 @@ const Slide = styled.div`
     position: absolute;
     top: 0;
     left: ${({ $isLight }) => ($isLight ? '2%' : '48%')};
-    transition: left 0.2s ease-in-out;
+    transition: left 0.3s ease-in-out;
     z-index: -1;
     border-radius: 6px;
 `;

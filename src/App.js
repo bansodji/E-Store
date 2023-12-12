@@ -8,17 +8,19 @@ import { useSelector } from 'react-redux';
 
 const App = () => {
 
+
   const lightTheme = {
     colors: {
       theme1: "#fb5d5c",
       theme2: "#fab75d",
+      theme3: "#333333",
       theme2a: "#fab65d57",
       body: "#f1f1f1",
       surface: "#fff",
       surface_50: "#ffffff6d",
       heading: "#1d2127",
       heading_: "#fff",
-      text: "#1d2127",
+      text: "#636e72",
       white: "#fff",
       black: "#000",
       black_: "#1d2127",
@@ -53,6 +55,7 @@ const App = () => {
     colors: {
       theme1: "#f1584a",
       theme2: "#fab75d",
+      theme3: "#333333",
       theme2a: "#fab65d57",
       body: "#1d2127",
       surface: "#2e323a",

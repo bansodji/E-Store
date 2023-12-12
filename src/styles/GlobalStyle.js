@@ -161,7 +161,7 @@ ul{
         left: 0;
         background-color: ${({theme})=>theme.colors.surface};
         box-shadow: ${({theme})=>theme.other.boxShadow};
-        padding: 0.4rem 0.8rem;
+        padding: 0.4rem;
         border-radius: 4px;
         min-width: 100px;
         max-width: 280px;
@@ -181,8 +181,9 @@ ul{
         }
 
         li{
-            padding: 4px 0;
+            padding: 4px;
             cursor: pointer;
+            border-radius: 4px;
 
             &:hover{
                 color: ${({theme})=>theme.colors.theme1};

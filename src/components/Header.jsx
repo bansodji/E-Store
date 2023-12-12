@@ -17,6 +17,10 @@ const Wrapper = styled.header`
     .active{
         color: ${({ theme }) => theme.colors.theme1};
     }
+    .active-cr{
+        color: ${({ theme }) => theme.colors.theme1};
+        background-color: ${({ theme }) => theme.colors.body};
+    }
 `;
 
 const NavLinks = styled.ul`
@@ -75,7 +79,7 @@ const Header = () => {
                                                 <li
                                                     key={index}
                                                     onClick={() => { dispatch(changeLang(data)) }}
-                                                    className={`${lang === data ? "active" : ""}`}
+                                                    className={`${lang === data ? "active-cr" : ""}`}
                                                 >
                                                     {data}
                                                 </li>
@@ -110,7 +114,7 @@ const Header = () => {
                                     let active = pathname === link;
 
                                     return (
-                                        <li key={index} className={`px-2 mx-2 ${active ? "active" : ""}`}>
+                                        <li key={index} className={`px-2 mx-2 ${active ? "active" : "heading"}`}>
                                             <Link
                                                 className='d-flex flex-column text-center fs-3 align-items-center'
                                                 to={link}
@@ -124,15 +128,15 @@ const Header = () => {
                             }
                         </NavLinks>
                         <ul className='d-flex'>
-                            <li className='mx-2'>
+                            <li className='mx-2 heading'>
                                 <Link to="/search" className='fs-4'>
                                     <IoSearchOutline />
                                 </Link>
                             </li>
-                            <li className='mx-2'>
+                            <li className='mx-2 heading'>
                                 <Badge icon={<IoHeartOutline />} count={0} />
                             </li>
-                            <li className='ms-2'>
+                            <li className='ms-2 heading'>
                                 <Badge icon={<IoCartOutline />} count={0} />
                             </li>
                         </ul>
