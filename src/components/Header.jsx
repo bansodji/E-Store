@@ -61,7 +61,7 @@ const Header = () => {
 
     const TopNav = () => {
         return (
-            <div className={`border-bottom ${isLight?"border-muted": "border-secondary"}`}>
+            <div className={`border-bottom ${isLight ? "border-muted" : "border-secondary"}`}>
                 <div className="container">
                     <div className="d-flex justify-content-between align-items-center">
                         <ul className='font13 d-flex align-items-center'>
@@ -107,38 +107,10 @@ const Header = () => {
                             <span className='fs-1 font-900 heading uppercase gradient-text'>E-Store</span>
                         </Link>
                         <NavLinks>
-                            {
-                                NavItem.map((data, index) => {
-                                    let link = data === "home" ? "/" : data;
-                                    let pathname = location.pathname === "/" ? "/" : location.pathname.split("/")[1];
-                                    let active = pathname === link;
-
-                                    return (
-                                        <li key={index} className={`px-2 mx-2 ${active ? "active" : "heading"}`}>
-                                            <Link
-                                                className='d-flex flex-column text-center fs-3 align-items-center'
-                                                to={link}
-                                            >
-                                                {active ? NavListSolid[data] : NavListOutline[data]}
-                                                <span className='font11 title font-500'>{data}</span>
-                                            </Link>
-                                        </li>
-                                    );
-                                })
-                            }
+                            <NavList />
                         </NavLinks>
                         <ul className='d-flex'>
-                            <li className='mx-2 heading'>
-                                <Link to="/search" className='fs-4'>
-                                    <IoSearchOutline />
-                                </Link>
-                            </li>
-                            <li className='mx-2 heading'>
-                                <Badge icon={<IoHeartOutline />} count={0} />
-                            </li>
-                            <li className='ms-2 heading'>
-                                <Badge icon={<IoCartOutline />} count={0} />
-                            </li>
+                            <NavList2 />
                         </ul>
                     </div>
                 </div>
@@ -150,27 +122,53 @@ const Header = () => {
         return (
             <BottomNavLinks>
                 <ul className='w-100 d-flex justify-content-between'>
-                    {
-                        NavItem.map((data, index) => {
-                            let link = data === "home" ? "/" : data;
-                            let pathname = location.pathname === "/" ? "/" : location.pathname.split("/")[1];
-                            let active = pathname === link;
-
-                            return (
-                                <li key={index} className={`px-3 py-2 ${active ? "active" : ""}`}>
-                                    <Link
-                                        className={`d-flex flex-column align-items-center text-center fs-3`}
-                                        to={link}
-                                    >
-                                        {active ? NavListSolid[data] : NavListOutline[data]}
-                                        <span className='font10 title font-500'>{data}</span>
-                                    </Link>
-                                </li>
-                            );
-                        })
-                    }
+                    <NavList />
                 </ul>
             </BottomNavLinks>
+        )
+    }
+
+    const NavList = () => {
+        return (
+            <>
+                {
+                    NavItem.map((data, index) => {
+                        let link = data === "home" ? "/" : data;
+                        let pathname = location.pathname === "/" ? "/" : location.pathname.split("/")[1];
+                        let active = pathname === link;
+
+                        return (
+                            <li key={index} className={`px-3 py-2 heading ${active ? "active" : ""}`}>
+                                <Link
+                                    className={`d-flex flex-column align-items-center text-center fs-3`}
+                                    to={link}
+                                >
+                                    {active ? NavListSolid[data] : NavListOutline[data]}
+                                    <span className='font10 title font-500'>{data}</span>
+                                </Link>
+                            </li>
+                        );
+                    })
+                }
+            </>
+        );
+    }
+
+    const NavList2 = () => {
+        return (
+            <>
+                <li className='mx-2 heading'>
+                    <Link to="/search" className='fs-4'>
+                        <IoSearchOutline />
+                    </Link>
+                </li>
+                <li className='mx-2 heading'>
+                    <Badge icon={<IoHeartOutline />} count={0} />
+                </li>
+                <li className='ms-2 heading'>
+                    <Badge icon={<IoCartOutline />} count={0} />
+                </li>
+            </>
         )
     }
 

@@ -60,7 +60,7 @@ const Hero = () => {
                         <SmButton>SUM-21</SmButton>
                         <h1 className='my-4 display-1 font-600 heading_'>SS-2021<br/>
                         Top Trending</h1>
-                        <TransparentButton>Shop Now</TransparentButton>
+                        <TransparentButton>Shop Now</TransparentButton>                        
                     </div>
                 </div>
             </Box>
