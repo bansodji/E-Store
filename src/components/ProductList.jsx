@@ -24,7 +24,7 @@ const ProductList = (props) => {
     }, []);
 
     return (
-        <div className='container my-4'>
+        <div className='container my-5'>
             <center>
                 <h1 className='heading'>{props.name}</h1>
                 <p>{props.desc}</p>

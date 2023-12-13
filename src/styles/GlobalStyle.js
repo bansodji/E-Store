@@ -33,6 +33,13 @@ body {
 .fff-50{color:#aaaeb6 !important;}
 .fff-bg{background-color:#fff;}
 
+.theme1{
+    color: ${({ theme }) => theme.colors.theme1};
+}
+.theme2{
+    color: ${({ theme }) => theme.colors.theme1};
+}
+
 a{
     text-decoration: none;
     cursor: pointer;

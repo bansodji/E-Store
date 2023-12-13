@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 import Categories from '../components/Categories';
 import ProductList from '../components/ProductList';
+import Banner from '../components/Banner';
 
 const Home = ({ data }) => {
   return (
@@ -16,6 +17,15 @@ const Home = ({ data }) => {
         isLoading={data.isLoading}
         isLoadMoreBtn={true}
         LoadMoreData="even"
+      />
+      <Banner/>
+      <ProductList
+        data={data.odd}
+        name="Featured Items"
+        desc="Update the latest fashion trends today"
+        isLoading={data.isLoading}
+        isLoadMoreBtn={true}
+        LoadMoreData="odd"
       />
     </>
   )

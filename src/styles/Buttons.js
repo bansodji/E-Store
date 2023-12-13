@@ -11,6 +11,7 @@ export const SmButton = styled.button`
     font-weight: 600;
     text-transform: uppercase;
 `;
+
 export const TransparentButton = styled.button`
     
     padding: 10px 25px;
@@ -101,4 +102,38 @@ export const Button1 = styled.button`
     &:active {
       top: 2px;
     }
+`;
+
+export const SaleButton = styled.button`
+  padding: 8px 15px;
+  background-color: ${({ theme }) => theme.colors.theme1};
+  border: none;
+  outline: none;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+
+  &::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-bottom: 24px solid ${({ theme }) => theme.colors.theme1};
+    bottom: 0;
+    left: -20%;
+  }
+  
+  &::before{
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-top: 24px solid ${({ theme }) => theme.colors.theme1};
+    top: 0;
+    left: -20%;
+  }
 `;
