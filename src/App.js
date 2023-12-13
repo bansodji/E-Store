@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { useContext } from 'react';
 import { ProductContext } from './context/productContext';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
   const products = useContext(ProductContext);
@@ -110,6 +111,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
+      <ScrollToTop/>
       <GlobalStyle />
       <Header />
       <Routes>

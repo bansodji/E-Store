@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { IoHeartOutline, IoCartOutline, IoSearchOutline, IoChevronDown } from "react-icons/io5";
@@ -48,6 +48,29 @@ const BottomNavLinks = styled.div`
     .active{
         color: ${({ theme }) => theme.colors.theme1};
         border-top: 2px solid ${({ theme }) => theme.colors.theme1};
+    }
+`;
+
+const StickyNavbarContainer = styled.div`
+    width: 100%;
+    z-index: 999999;
+    position: fixed;
+    top: ${({ $offsety }) => ($offsety > 150 ? '0' : '-100%')}; /* Update top position */
+    background-color: ${({ theme }) => theme.colors.surface};
+    box-shadow: ${({ theme }) => theme.other.boxShadow};
+    transition: top 0.4s ease; /* Add transition effect */
+
+    @media(max-width:${({ theme }) => theme.screen.md}){
+        /* display: none; */
+        padding: 0.5rem 0;
+    }
+
+    .active{
+        color: ${({ theme }) => theme.colors.theme1};
+    }
+    .active-cr{
+        color: ${({ theme }) => theme.colors.theme1};
+        background-color: ${({ theme }) => theme.colors.body};
     }
 `;
 
@@ -175,8 +198,44 @@ const Header = () => {
         )
     }
 
+    const StickyNavbar = () => {
+        const [offsetY, setOffSetY] = useState(0);
+
+        useEffect(() => {
+            const handleScroll = () => {
+                const offset = window.scrollY;
+                setOffSetY(offset);
+            };
+
+            window.addEventListener('scroll', handleScroll);
+
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        });
+
+        return (
+            <StickyNavbarContainer $offsety={offsetY}>
+                <div className="container-fluid">
+                    <div className='d-flex justify-content-between align-items-center'>
+                        <Link to="/">
+                            <span className='fs-2 font-900 heading uppercase gradient-text'>E-Store</span>
+                        </Link>
+                        <NavLinks>
+                            <NavList />
+                        </NavLinks>
+                        <ul className='d-flex'>
+                            <NavList2 />
+                        </ul>
+                    </div>
+                </div>
+            </StickyNavbarContainer>
+        )
+    }
+
     return (
         <>
+            <StickyNavbar />
             <Wrapper>
                 <TopNav />
                 <Navigation />
