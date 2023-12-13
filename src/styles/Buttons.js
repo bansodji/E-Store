@@ -58,7 +58,7 @@ export const TransparentButton = styled.button`
 `;
 
 export const Button1 = styled.button`
-padding: 10px 25px;
+    padding: 10px 25px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     background: ${({ theme }) => theme.colors.heading};
@@ -74,6 +74,7 @@ padding: 10px 25px;
     border: none;
     z-index: 1;
     color: ${({ theme }) => theme.colors.body};
+    font-weight: 600;
 
 
     &:after {

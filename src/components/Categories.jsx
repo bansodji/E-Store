@@ -12,13 +12,13 @@ const Container = styled.div`
         justify-content: center;
         flex-direction: column;
         .img-box{
-            width: 12rem;
-            height: 12rem;
+            width: 10rem;
+            height: 10rem;
             box-shadow: ${({theme})=>theme.other.boxShadow};
             
             @media (max-width:${({ theme }) => theme.screen.md}) {
-                width: 10rem;
-                height: 10rem;
+                width: 9rem;
+                height: 9rem;
             }
             @media (max-width:${({ theme }) => theme.screen.sm}) {
                 width: 8rem;

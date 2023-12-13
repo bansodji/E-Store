@@ -7,9 +7,10 @@ import { NavListOutline, NavListSolid } from '../data/HeaderData';
 import ThemeSwitch from './ThemeSwitch';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeLang } from '../redux/slices/langSlice';
+import { changecurrency } from '../redux/slices/currSlice';
 
 const Wrapper = styled.header`
-    z-index: 999;
+    z-index: 9999 !important;
     width: 100%;
     box-shadow: ${({ theme }) => theme.other.boxShadow};
     background-color: ${({ theme }) => theme.colors.surface};
@@ -32,6 +33,7 @@ const NavLinks = styled.ul`
 `;
 
 const BottomNavLinks = styled.div`
+    z-index: 9999 !important;
     display: none;
     position: fixed;
     bottom: 0;
@@ -56,6 +58,7 @@ const Header = () => {
     const location = useLocation();
 
     const lang = useSelector(state => state.lang);
+    const currency = useSelector(state => state.currency);
     const isLight = useSelector(state => state.theme);
     const dispatch = useDispatch();
 
@@ -78,8 +81,8 @@ const Header = () => {
                                             Language.map((data, index) => (
                                                 <li
                                                     key={index}
-                                                    onClick={() => { dispatch(changeLang(data)) }}
-                                                    className={`${lang === data ? "active-cr" : ""}`}
+                                                    onClick={() => { dispatch(changecurrency(data)) }}
+                                                    className={`${currency === data ? "active-cr" : ""}`}
                                                 >
                                                     {data}
                                                 </li>

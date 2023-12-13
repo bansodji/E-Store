@@ -5,8 +5,12 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/GlobalStyle';
 import Header from './components/Header';
 import { useSelector } from 'react-redux';
+import { useContext } from 'react';
+import { ProductContext } from './context/productContext';
+import Footer from './components/Footer';
 
 const App = () => {
+  const products = useContext(ProductContext);
 
 
   const lightTheme = {
@@ -31,6 +35,7 @@ const App = () => {
       active: "#000",
       footer: "#101317",
       grey: "#3f4043",
+      lightBorder: "#e2e8f0",
     },
     button: {
       btn_bg_1: "#101317",
@@ -48,6 +53,7 @@ const App = () => {
       lg: "992px",
       md: "768px",
       sm: "576px",
+      xs: "400px",
     }
   }
 
@@ -74,6 +80,7 @@ const App = () => {
       active: "#fff",
       footer: "#101317",
       grey: "#3f4043",
+      lightBorder: "#e2e8f0",
     },
     button: {
       btn_bg_1: "#fff",
@@ -106,9 +113,10 @@ const App = () => {
       <GlobalStyle />
       <Header />
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="*" element={<Home />} />
+        <Route exact path="/" element={<Home data={products}/>} />
+        <Route path="*" element={<Home data={products}/>} />
       </Routes>
+      <Footer/>
     </ThemeProvider>
   )
 }

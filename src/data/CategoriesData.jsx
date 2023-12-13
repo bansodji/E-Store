@@ -4,5 +4,5 @@ export const CategoriesData = {
     "Shoes": "/images/category/shoes.jpg",
     "Laptops": "/images/category/laptop.avif",
     "Smartphones": "/images/category/phone.jpg",
-    // "Tablets": "/images/category/tablets.avif",
+    "Tablets": "/images/category/tablets.avif",
 }
