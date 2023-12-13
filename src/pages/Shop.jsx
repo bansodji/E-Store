@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Filters from '../components/Filters';
+
 
 const Shop = () => {
-  return (
-    <div>Shop</div>
-  )
+    return (
+        <Filters />
+    )
 }
 
-export default Shop
+export default Shop;

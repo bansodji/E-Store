@@ -137,3 +137,16 @@ export const SaleButton = styled.button`
     left: -20%;
   }
 `;
+
+export const RoundButton = styled.button`
+  padding: 4px 10px;
+  border: none;
+  outline: none;
+  background-color: ${({theme})=>theme.colors.surface};
+  display: inline;
+  border-radius: 20px;
+  font-size: 14px;
+  text-transform: capitalize;
+  /* border: 1px solid ${({theme})=>theme.colors.text}; */
+  color: ${({theme})=>theme.colors.text};
+`;

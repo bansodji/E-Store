@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import Shop from './pages/Shop';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/GlobalStyle';
 import Header from './components/Header';
@@ -116,6 +117,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route exact path="/" element={<Home data={products}/>} />
+        <Route exact path="/shop" element={<Shop data={products}/>} />
         <Route path="*" element={<Home data={products}/>} />
       </Routes>
       <Footer/>

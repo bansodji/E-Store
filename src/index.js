@@ -8,14 +8,17 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { ProductProvider } from './context/productContext';
+import { FilterProvider } from './context/filterContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <ProductProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <FilterProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </FilterProvider>
     </ProductProvider>
   </Provider>
 );
