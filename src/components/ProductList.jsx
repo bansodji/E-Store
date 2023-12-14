@@ -24,11 +24,16 @@ const ProductList = (props) => {
     }, []);
 
     return (
-        <div className='container my-5'>
-            <center>
-                <h1 className='heading'>{props.name}</h1>
-                <p>{props.desc}</p>
-            </center>
+        <div className='container'>
+            {
+                props.isDesc
+                    ? <center>
+                        <h1 className='heading'>{props.name}</h1>
+                        <p>{props.desc}</p>
+                    </center>
+                    : ""
+            }
+
             {
                 props.isLoading
                     ? <ISkeleton ItemCount={10} />

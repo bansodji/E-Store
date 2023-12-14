@@ -7,12 +7,12 @@ export const NavListOutline = {
     "home": <GoHome />,
     "shop": <IoBagOutline />,
     "category": <MdOutlineCategory  />,
-    "trend": <IoShirtOutline />,
+    "trending": <IoShirtOutline />,
 };
 
 export const NavListSolid = {
     "home": <GoHomeFill />,
     "shop": <IoBag />,
     "category": <MdCategory />,
-    "trend": <IoShirt />,
+    "trending": <IoShirt />,
 };

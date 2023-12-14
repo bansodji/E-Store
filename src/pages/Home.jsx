@@ -12,15 +12,17 @@ const Home = ({ data }) => {
       <Categories />
       <ProductList
         data={data.even}
+        isDesc={true}
         name="New Arrivals"
         desc="Add our new arrivals to your weekly lineup"
         isLoading={data.isLoading}
         isLoadMoreBtn={true}
         LoadMoreData="even"
       />
-      <Banner/>
+      <Banner />
       <ProductList
         data={data.odd}
+        isDesc={true}
         name="Featured Items"
         desc="Update the latest fashion trends today"
         isLoading={data.isLoading}

@@ -58,8 +58,11 @@ const SmButton = styled.button`
     outline: none;
     background: none;
     color: ${({ theme }) => theme.colors.theme1};
-    font-size: 1.2rem;
     font-weight: 600;
+
+    svg{
+        font-size: 1.5rem;
+    }
 `;
 
 const WishlistButton = () => {

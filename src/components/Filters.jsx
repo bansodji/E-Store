@@ -65,7 +65,7 @@ const Filters = () => {
     }
 
     return (
-        <Wrapper className='container my-3'>
+        <Wrapper className='container my-4'>
             <FilterSm />
             <OffCanvas/>
             <Row>
