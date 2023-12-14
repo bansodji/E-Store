@@ -8,6 +8,7 @@ const Card = styled.div`
     width: 100%;
     height: 100%;
     background-color: ${({theme})=>theme.colors.theme2};
+    /* background-image: linear-gradient(45deg, ${({ theme }) => theme.colors.theme1}, ${({ theme }) => theme.colors.theme2} 70%); */
     color: ${({theme})=>theme.colors.white};
     letter-spacing: 1px;
     display: grid;
@@ -42,7 +43,7 @@ const Category = () => {
                         <Col key={index} lg={3} md={3} sm={4} xs={6}>
                             <Card>
                                 <Link className='image' to={`/category/${data.name}`}>
-                                    <img src={data.image} alt={data.name} className='mt-2' />
+                                    <img src={data.image} alt={data.name} className='mt-2' loading="lazy" />
                                 </Link>
                                 <Link className='desc p-2 pt-3' to={`/category/${data.name}`}>
                                     <h6 className='title'>{data.name.replace(/-/g, " ")}</h6>

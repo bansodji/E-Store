@@ -3,6 +3,7 @@ import ProductCard from './ProductCard';
 import { Row } from 'react-bootstrap';
 import ISkeleton from './ISkeleton';
 import { Button1 } from '../styles/Buttons';
+import { Link } from 'react-router-dom';
 
 const ProductList = (props) => {
 
@@ -51,9 +52,11 @@ const ProductList = (props) => {
             }
             {
                 props.isLoadMoreBtn
-                    ? <div className='text-center mt-4'>
-                        <Button1>Load More</Button1>
-                    </div>
+                    ? <center className='mt-4'>
+                        <Link to={`products/${props.LoadMoreData}/${props.name}`}>
+                            <Button1>Load More</Button1>
+                        </Link>
+                    </center>
                     : <></>
             }
         </div>

@@ -117,7 +117,7 @@ ul{
 }
 
 .gradient-bg {
-  background-image: linear-gradient(to right, ${({ theme }) => theme.colors.theme1}, ${({ theme }) => theme.colors.theme2});
+  background-image: linear-gradient(45deg, ${({ theme }) => theme.colors.theme1}, ${({ theme }) => theme.colors.theme2} 70%);
 }
 
 .heading{

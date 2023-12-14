@@ -17,7 +17,7 @@ const Home = ({ data }) => {
         desc="Add our new arrivals to your weekly lineup"
         isLoading={data.isLoading}
         isLoadMoreBtn={true}
-        LoadMoreData="even"
+        LoadMoreData="all_even"
       />
       <Banner />
       <ProductList
@@ -27,7 +27,7 @@ const Home = ({ data }) => {
         desc="Update the latest fashion trends today"
         isLoading={data.isLoading}
         isLoadMoreBtn={true}
-        LoadMoreData="odd"
+        LoadMoreData="all_odd"
       />
     </>
   )

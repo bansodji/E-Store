@@ -14,6 +14,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Category from './pages/Category';
 import { CategoryContext } from './context/categoryContext';
 import ItemsByCategory from './pages/ItemsByCategory';
+import LoadMoreData from './pages/LoadMoreData';
 
 const App = () => {
   const products = useContext(ProductContext);
@@ -126,6 +127,7 @@ const App = () => {
         <Route exact path="/trending" element={<Trending data={products}/>} />
         <Route exact path="/category" element={<Category/>} />
         <Route exact path="/category/:name" element={<ItemsByCategory/>} />
+        <Route exact path="/products/:id/:name" element={<LoadMoreData data={products}/>} />
         <Route path="*" element={<Home data={products}/>} />
       </Routes>
       <Footer/>

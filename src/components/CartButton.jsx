@@ -35,7 +35,6 @@ const Button = styled.div`
 
     &:hover {
       color: ${({ theme }) => theme.colors.white};
-      border: 1px solid ${({ theme }) => theme.colors.white};
     }
 
     &:hover:after {
