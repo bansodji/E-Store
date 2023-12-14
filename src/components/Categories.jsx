@@ -40,7 +40,7 @@ const Categories = () => {
     return (
         <Container className='container my-5'>
             <div className='text-center'>
-                <h1 className='heading'>Trending Categories</h1>
+                <h1 className='heading font-600'>Trending Categories</h1>
                 <p className='font-400'>Find a bright ideal to suit your taste with our great selection of suspension.</p>
             </div>
             <Row className='g-4'>

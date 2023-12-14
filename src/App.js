@@ -11,9 +11,13 @@ import { useContext } from 'react';
 import { ProductContext } from './context/productContext';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import Category from './pages/Category';
+import { CategoryContext } from './context/categoryContext';
+import ItemsByCategory from './pages/ItemsByCategory';
 
 const App = () => {
   const products = useContext(ProductContext);
+  const categories = useContext(CategoryContext);
 
 
   const lightTheme = {
@@ -120,6 +124,8 @@ const App = () => {
         <Route exact path="/" element={<Home data={products}/>} />
         <Route exact path="/shop" element={<Shop data={products}/>} />
         <Route exact path="/trending" element={<Trending data={products}/>} />
+        <Route exact path="/category" element={<Category/>} />
+        <Route exact path="/category/:name" element={<ItemsByCategory/>} />
         <Route path="*" element={<Home data={products}/>} />
       </Routes>
       <Footer/>

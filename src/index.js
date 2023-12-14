@@ -9,15 +9,18 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { ProductProvider } from './context/productContext';
 import { FilterProvider } from './context/filterContext';
+import { CategoryProvider } from './context/categoryContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <ProductProvider>
       <FilterProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <CategoryProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CategoryProvider>
       </FilterProvider>
     </ProductProvider>
   </Provider>

@@ -28,7 +28,7 @@ const ProductList = (props) => {
             {
                 props.isDesc
                     ? <center>
-                        <h1 className='heading'>{props.name}</h1>
+                        <h1 className='heading font-600 title'>{props.name}</h1>
                         <p>{props.desc}</p>
                     </center>
                     : ""
