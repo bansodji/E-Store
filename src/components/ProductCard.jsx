@@ -63,7 +63,7 @@ const ProductCard = ({ data, isLargeScreen }) => {
                         <RatingBox rating={data.rating} rateBy={false} />
                     </div>
                     <div className='mt-2 hide-on-sm text-center'>
-                        <CartButton />
+                        <CartButton data={data}/>
                     </div>
                 </div>
             </div>

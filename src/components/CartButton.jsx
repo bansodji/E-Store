@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { IoCartOutline } from "react-icons/io5";
+import { IoCartOutline, IoCart } from "react-icons/io5";
+import { useDispatch, useSelector } from 'react-redux';
+import { addCart } from '../redux/slices/cartSlice';
 
 const Button = styled.div`
     padding: 10px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    background: transparent;
+    background: ${({ theme, $exist }) => $exist === true ? theme.colors.theme1 : 'transparent'};
     outline: none !important;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -17,7 +19,7 @@ const Button = styled.div`
     font-weight: 600;
     border: 1px solid ${({ theme }) => theme.colors.theme1};
     z-index: 1;
-    color: ${({ theme }) => theme.colors.theme1};
+    color: ${({ theme, $exist }) => $exist === true ? theme.colors.white : theme.colors.theme1};
     width: 100%;
     text-transform: uppercase;
 
@@ -51,13 +53,32 @@ const Button = styled.div`
     }
 `;
 
-const CartButton = () => {
-    return (
-        <Button>
-            <IoCartOutline />
-            &nbsp;Add To Cart
-        </Button>
-    )
+const CartButton = ({ data }) => {
+  const cart = useSelector(state => state.cart.items);
+  const dispatch = useDispatch();
+
+  const exists = cart.some(product => product.id === data.id);
+
+  const handleClick = () => {
+    dispatch(addCart(data));
+  }
+
+  return (
+    <Button onClick={handleClick} $exist={exists}>
+      {
+        exists
+          ? <>
+            <IoCart />&nbsp;
+            <span>Added To Cart</span>
+          </>
+          : <>
+            <IoCartOutline />&nbsp;
+            <span>Add To Cart</span>
+          </>
+      }
+
+    </Button>
+  )
 }
 
 export default CartButton;
