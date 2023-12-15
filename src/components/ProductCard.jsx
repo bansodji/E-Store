@@ -5,6 +5,7 @@ import Price from './Price';
 import RatingBox from './RatingBox';
 import CartButton from './CartButton';
 import { WishlistButtonSm } from './WishlistButton';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     width: 100%;
@@ -47,9 +48,11 @@ const ProductCard = ({ data, isLargeScreen }) => {
     return (
         <Container className={`${isLargeScreen ? "" : "rounded"}`}>
             <div className={`product-card ${isLargeScreen ? "" : "rounded"}`}>
-                <div className={`img-container`}>
-                    <img className={`${isLargeScreen ? "" : "rounded-top"}`} src={data.thumbnail} alt={data.title} loading="lazy" />
-                </div>
+                <Link to={`/product/${data.id}`}>
+                    <div className={`img-container`}>
+                        <img className={`${isLargeScreen ? "" : "rounded-top"}`} src={data.thumbnail} alt={data.title} loading="lazy" />
+                    </div>
+                </Link>
                 <div className={`body d-flex flex-column ${isLargeScreen ? "p-3" : "p-2"}`}>
                     <div className='heading title font-600 d-flex justify-content-between align-items-center'>
                         <TruncateText text={data.title} maxLength={15} />
@@ -63,7 +66,7 @@ const ProductCard = ({ data, isLargeScreen }) => {
                         <RatingBox rating={data.rating} rateBy={false} />
                     </div>
                     <div className='mt-2 hide-on-sm text-center'>
-                        <CartButton data={data}/>
+                        <CartButton data={data} />
                     </div>
                 </div>
             </div>

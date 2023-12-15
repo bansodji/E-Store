@@ -4,7 +4,7 @@ import { IoCartOutline, IoCart } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { addCart } from '../redux/slices/cartSlice';
 
-const Button = styled.div`
+const Button = styled.button`
     padding: 10px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;

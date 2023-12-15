@@ -5,7 +5,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { useDispatch, useSelector } from 'react-redux';
 import { addWishlist } from '../redux/slices/wishlistSlice';
 
-const Button = styled.div`
+const Button = styled.button`
     padding: 10px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
