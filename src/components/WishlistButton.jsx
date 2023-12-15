@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { IoCartOutline, IoHeartOutline, IoHeart, IoCart } from "react-icons/io5";
+import { IoHeart, IoHeartOutline } from "react-icons/io5";
 import Tooltip from '@mui/material/Tooltip';
+import { useDispatch, useSelector } from 'react-redux';
+import { addWishlist } from '../redux/slices/wishlistSlice';
 
 const Button = styled.div`
     padding: 10px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    background: transparent;
+    background: ${({ theme, $exist }) => $exist === true ? theme.colors.theme1 : 'transparent'};
     outline: none !important;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -18,7 +20,7 @@ const Button = styled.div`
     font-weight: 600;
     border: 1px solid ${({ theme }) => theme.colors.theme1};
     z-index: 1;
-    color: ${({ theme }) => theme.colors.theme1};
+    color: ${({ theme, $exist }) => $exist === true ? theme.colors.white : theme.colors.theme1};
     width: 100%;
     text-transform: uppercase;
 
@@ -36,7 +38,6 @@ const Button = styled.div`
 
     &:hover {
       color: ${({ theme }) => theme.colors.white};
-      border: 1px solid ${({ theme }) => theme.colors.white};
     }
 
     &:hover:after {
@@ -65,20 +66,50 @@ const SmButton = styled.button`
     }
 `;
 
-const WishlistButton = () => {
+const WishlistButton = ({ data }) => {
+    const wishlist = useSelector(state => state.wishlist.items);
+    const dispatch = useDispatch();
+
+    const exists = wishlist.some(product => product.id === data.id);
+
+    const handleClick = () => {
+        dispatch(addWishlist(data));
+    }
+
     return (
-        <Button>
-            <IoCartOutline />
-            &nbsp;Add To Cart
+        <Button onClick={handleClick} $exist={exists}>
+            {
+                exists
+                    ? <>
+                        <IoHeart />&nbsp;
+                        <span>Added To Wishlist</span>
+                    </>
+                    : <>
+                        <IoHeartOutline />&nbsp;
+                        <span>Add To Wishlist</span>
+                    </>
+            }
+
         </Button>
     )
 }
 
-const WishlistButtonSm = () => {
+const WishlistButtonSm = ({ data }) => {
+    const wishlist = useSelector(state => state.wishlist.items);
+    const dispatch = useDispatch();
+
+    const exists = wishlist.some(product => product.id === data.id);
+
+    const handleClick = () => {
+        dispatch(addWishlist(data));
+    }
+
     return (
         <Tooltip title="Add to Wishlist" placement="top">
-            <SmButton>
-                <IoHeartOutline />
+            <SmButton onClick={handleClick}>
+                {
+                    exists ? <IoHeart /> : <IoHeartOutline />
+                }
             </SmButton>
         </Tooltip>
     )

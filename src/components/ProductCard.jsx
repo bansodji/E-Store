@@ -53,7 +53,7 @@ const ProductCard = ({ data, isLargeScreen }) => {
                 <div className={`body d-flex flex-column ${isLargeScreen ? "p-3" : "p-2"}`}>
                     <div className='heading title font-600 d-flex justify-content-between align-items-center'>
                         <TruncateText text={data.title} maxLength={15} />
-                        <span className='hide-on-sm'><WishlistButtonSm /></span>
+                        <span className='hide-on-sm'><WishlistButtonSm data={data} /></span>
                     </div>
                     <span className='font13'>
                         <TruncateText text={data.description} maxLength={34} />
