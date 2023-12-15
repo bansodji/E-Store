@@ -24,7 +24,7 @@ const ItemsByCategory = () => {
     }, []);
 
     return (
-        <div className='container my-4'>
+        <div className='my-4'>
             {
                 catItems == null ? ""
                     : <ProductList
