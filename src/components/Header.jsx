@@ -6,7 +6,6 @@ import Badge from './Badge';
 import { NavListOutline, NavListSolid } from '../data/HeaderData';
 import ThemeSwitch from './ThemeSwitch';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeLang } from '../redux/slices/langSlice';
 import { changecurrency } from '../redux/slices/currSlice';
 
 const Wrapper = styled.header`
@@ -80,7 +79,8 @@ const Header = () => {
     const NavItem = Object.keys(NavListOutline);
     const location = useLocation();
 
-    const lang = useSelector(state => state.lang);
+    const cart = useSelector(state => state.cart.items);
+    const wishlist = useSelector(state => state.wishlist.items);
     const currency = useSelector(state => state.currency);
     const isLight = useSelector(state => state.theme);
     const dispatch = useDispatch();
@@ -189,10 +189,10 @@ const Header = () => {
                     </Link>
                 </li>
                 <li className='mx-2 heading'>
-                    <Badge icon={<IoHeartOutline />} count={0} />
+                    <Badge icon={<IoHeartOutline />} count={wishlist.length > 9?"9+":wishlist.length} />
                 </li>
                 <li className='ms-2 heading'>
-                    <Badge icon={<IoCartOutline />} count={0} />
+                    <Badge icon={<IoCartOutline />} count={cart.length > 9 ? "9+" : cart.length} />
                 </li>
             </>
         )
