@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
+import SingleProduct from './pages/SingleProduct';
+import Search from './pages/Search';
 import Trending from './pages/Trending';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/GlobalStyle';
@@ -15,6 +17,8 @@ import Category from './pages/Category';
 import { CategoryContext } from './context/categoryContext';
 import ItemsByCategory from './pages/ItemsByCategory';
 import LoadMoreData from './pages/LoadMoreData';
+import Wishlist from './pages/Wishlist';
+import Cart from './pages/Cart';
 
 const App = () => {
   const products = useContext(ProductContext);
@@ -118,19 +122,23 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <ScrollToTop/>
+      <ScrollToTop />
       <GlobalStyle />
       <Header />
       <Routes>
-        <Route exact path="/" element={<Home data={products}/>} />
-        <Route exact path="/shop" element={<Shop data={products}/>} />
-        <Route exact path="/trending" element={<Trending data={products}/>} />
-        <Route exact path="/category" element={<Category/>} />
-        <Route exact path="/category/:name" element={<ItemsByCategory/>} />
-        <Route exact path="/products/:id/:name" element={<LoadMoreData data={products}/>} />
-        <Route path="*" element={<Home data={products}/>} />
+        <Route exact path="/" element={<Home data={products} />} />
+        <Route exact path="/shop" element={<Shop data={products} />} />
+        <Route exact path="/trending" element={<Trending data={products} />} />
+        <Route exact path="/category" element={<Category />} />
+        <Route exact path="/category/:name" element={<ItemsByCategory />} />
+        <Route exact path="/products/:id/:name" element={<LoadMoreData data={products} />} />
+        <Route exact path="/product/:id" element={<SingleProduct />} />
+        <Route exact path="/search" element={<Search />} />
+        <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/wishlist" element={<Wishlist />} />
+        <Route path="*" element={<Home data={products} />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </ThemeProvider>
   )
 }

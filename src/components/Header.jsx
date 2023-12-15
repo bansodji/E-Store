@@ -189,10 +189,14 @@ const Header = () => {
                     </Link>
                 </li>
                 <li className='mx-2 heading'>
-                    <Badge icon={<IoHeartOutline />} count={wishlist.length > 9?"9+":wishlist.length} />
+                    <Link to="/wishlist">
+                        <Badge icon={<IoHeartOutline />} count={wishlist.length > 9 ? "9+" : wishlist.length} />
+                    </Link>
                 </li>
                 <li className='ms-2 heading'>
-                    <Badge icon={<IoCartOutline />} count={cart.length > 9 ? "9+" : cart.length} />
+                    <Link to="/cart">
+                        <Badge icon={<IoCartOutline />} count={cart.length > 9 ? "9+" : cart.length} />
+                    </Link>
                 </li>
             </>
         )

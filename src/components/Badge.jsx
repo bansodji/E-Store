@@ -25,9 +25,9 @@ const Badge = ({ icon, count }) => {
     return (
         <BadgeIcon>
             <span>{count}</span>
-            <a className='fs-3'>
+            <i className='fs-3'>
                 {icon}
-            </a>
+            </i>
         </BadgeIcon>
     )
 }
