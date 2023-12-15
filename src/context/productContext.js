@@ -5,7 +5,7 @@ import reducer from "../reducer/productReducer";
 const ProductContext = createContext();
 
 const API = process.env.REACT_APP_API_URL;
-const API_ALL = process.env.REACT_APP_API_URL_ALL;
+const API_ALL = process.env.REACT_APP_API_URL_ALL; 
 
 const initialState = {
     isLoading: false,
