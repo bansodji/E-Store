@@ -135,7 +135,7 @@ const App = () => {
         <Route exact path="/category/:name" element={<ItemsByCategory />} />
         <Route exact path="/products/:id/:name" element={<LoadMoreData data={products} />} />
         <Route exact path="/product/:id" element={<SingleProduct Data={products} />} />
-        <Route exact path="/search" element={<Search />} />
+        <Route exact path="/search" element={<Search Data={products} />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/wishlist" element={<Wishlist />} />
         <Route path="*" element={<Home data={products} />} />
