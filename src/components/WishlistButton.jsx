@@ -82,11 +82,11 @@ const WishlistButton = ({ data }) => {
                 exists
                     ? <>
                         <IoHeart />&nbsp;
-                        <span>Added To Wishlist</span>
+                        <span>Wishlist</span>
                     </>
                     : <>
                         <IoHeartOutline />&nbsp;
-                        <span>Add To Wishlist</span>
+                        <span>Wishlist</span>
                     </>
             }
 

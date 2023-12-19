@@ -200,4 +200,15 @@ ul{
 }
 //===Hoverable Select end===
 
+
+.hide-on-sm{
+    @media (max-width:${({theme})=>theme.screen.sm}) {
+        display: none;
+    }
+}
+
+.text-overline {
+  text-decoration: line-through;
+}
+
 `;

@@ -66,7 +66,7 @@ const ProductCard = ({ data, isLargeScreen }) => {
                         </Link>
                     </span>
                     <div className='d-flex align-items-center justify-content-between mt-2'>
-                        <Price price={data.price} />
+                        <span className='font-600'><Price price={data.price} /></span>
                         <RatingBox rating={data.rating} rateBy={false} />
                     </div>
                     <div className='mt-2 hide-on-sm text-center'>

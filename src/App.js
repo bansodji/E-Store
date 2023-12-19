@@ -47,6 +47,7 @@ const App = () => {
       active: "#000",
       footer: "#101317",
       grey: "#3f4043",
+      light_grey: "#d1d5db",
       lightBorder: "#e2e8f0",
     },
     button: {
@@ -92,6 +93,7 @@ const App = () => {
       active: "#fff",
       footer: "#101317",
       grey: "#3f4043",
+      light_grey: "#d1d5db",
       lightBorder: "#e2e8f0",
     },
     button: {
@@ -132,7 +134,7 @@ const App = () => {
         <Route exact path="/category" element={<Category />} />
         <Route exact path="/category/:name" element={<ItemsByCategory />} />
         <Route exact path="/products/:id/:name" element={<LoadMoreData data={products} />} />
-        <Route exact path="/product/:id" element={<SingleProduct />} />
+        <Route exact path="/product/:id" element={<SingleProduct Data={products} />} />
         <Route exact path="/search" element={<Search />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/wishlist" element={<Wishlist />} />

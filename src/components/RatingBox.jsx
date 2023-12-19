@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AiFillStar } from "react-icons/ai";
 
 const RatingButtonWrapper = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.lightBorder};
+  border: 1px solid ${({ theme }) => theme.colors.light_grey};
   display: inline;
   padding: 8px 15px;
   font-size: 14px;
@@ -14,18 +14,18 @@ const RatingButtonWrapper = styled.div`
   }
 
   .rate-by{
-    /* color: ${({ theme }) => theme.colors.grey}; */
+    /* color: ${({ theme }) => theme.colors.light_grey}; */
   }
 
   .line{
-    border: 1px solid ${({ theme }) => theme.colors.lightBorder};
+    border: 1px solid ${({ theme }) => theme.colors.light_grey};
     margin: 0 10px;
   }
 
   @media (max-width: ${({ theme }) => theme.screen.sm}) {
-    padding: 1px;
+    /* padding: 1px; */
     font-size: 12px;
-    border: none;
+    /* border: none; */
   }
 `;
 
