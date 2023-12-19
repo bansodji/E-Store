@@ -13,7 +13,7 @@ const FilterReducer = (state, action) => {
                 return data.id % 2 === 0;
             });
             const odd = products.filter((data) => {
-                return data.id % 2 != 0;
+                return data.id % 2 !== 0;
             });
             // Sort by price low to high
             const lowToHigh = products.slice(0).sort((a, b) => a.price - b.price);

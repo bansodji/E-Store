@@ -102,6 +102,7 @@ const Wrapper = styled.section`
         width:20px;
         background: none;
         text-align:center;
+        color: ${({ theme }) => theme.colors.heading};
     }
   }
 `;
@@ -187,7 +188,7 @@ const SingleProduct = ({ Data }) => {
           <a onClick={() => handleClick('decrement')}><HiMinus /></a>
           <input type="text" value={quantity} readOnly id='quantity' name='quantity' />
           <a onClick={() => handleClick('increment')}><HiPlus /></a>
-        </div>x
+        </div>
         <div className='mt-3 d-flex'>
           <p className='me-2'>Subtotal: </p><Price price={subtotal} />
         </div>

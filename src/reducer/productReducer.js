@@ -13,13 +13,13 @@ const ProductReducer = (state, action) => {
                 return data.id % 2 === 0;
             });
             const odd = action.payload[0].filter((data) => {
-                return data.id % 2 != 0;
+                return data.id % 2 !== 0;
             });
             const all_even = action.payload[1].filter((data) => {
                 return data.id % 2 === 0;
             });
             const all_odd = action.payload[1].filter((data) => {
-                return data.id % 2 != 0;
+                return data.id % 2 !== 0;
             });
 
 
