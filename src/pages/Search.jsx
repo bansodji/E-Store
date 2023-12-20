@@ -219,7 +219,7 @@ const SearchPage = ({ Data }) => {
               onChange={handleInputChange}
               value={searchTerm}
               className='ms-2'
-              type="text"
+              type="search"
               placeholder='Search for brands and products'
               id='Search'
               name='Search'
