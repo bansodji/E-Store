@@ -6,11 +6,43 @@ export const CategoriesData = {
     "Smartphones": "/images/category/phone.jpg",
     "Tablets": "/images/category/tablets.avif",
 }
+export const CategoriesData2 = [
+    {
+        name: "Dresses",
+        image: "/images/category/dress.jpg",
+        link: "/category/womens-dresses",
+    },
+    {
+        name: "Tops",
+        image: "/images/category/tops.jpg",
+        link: "/category/tops",
+    },
+    {
+        name: "Shoes",
+        image: "/images/category/shoes.jpg",
+        link: "/category/mens-shoes",
+    },
+    {
+        name: "Laptops",
+        image: "/images/category/laptop.avif",
+        link: "/category/laptops",
+    },
+    {
+        name: "Smartphones",
+        image: "/images/category/phone.jpg",
+        link: "/category/smartphones",
+    },
+    {
+        name: "Decoration",
+        image: "/images/category/home-decoration.webp",
+        link: "/category/home-decoration",
+    },
+]
 
 export const AllCategories = [
     {
         name: "smartphones",
-        image: "/images/category/phone.jpg" 
+        image: "/images/category/phone.jpg", 
     },
     {
         name: "laptops",

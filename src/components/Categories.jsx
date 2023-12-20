@@ -1,7 +1,8 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import styled from 'styled-components';
-import { CategoriesData } from '../data/CategoriesData';
+import { CategoriesData,CategoriesData2 } from '../data/CategoriesData';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     .category-card{
@@ -45,16 +46,16 @@ const Categories = () => {
             </div>
             <Row className='g-4'>
                 {
-                    Object.keys(CategoriesData).map((data, index) => (
+                    CategoriesData2.map((data, index) => (
                         <Col key={index}>
-                            <div className='category-card'>
+                            <Link className='category-card' to={data.link}>
                                 <div className='img-box'>
-                                    <img src={CategoriesData[data]} alt={data} />
+                                    <img src={data.image} alt={data.name} />
                                 </div>
                                 <div className='desc mt-2'>
-                                    <h5 className='title text'>{data}</h5>
+                                    <h5 className='title text text-center'>{data.name}</h5>
                                 </div>
-                            </div>
+                            </Link>
                         </Col>
                     ))
                 }
