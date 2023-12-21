@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import ProductCard from './ProductCard2';
+import ProductCard from './CartCard';
 import { Row } from 'react-bootstrap';
 import ISkeleton from './ISkeleton';
 import { Button1 } from '../styles/Buttons';
 import { Link } from 'react-router-dom';
 
-const ProductList = (props) => {
+const CartList = (props) => {
 
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 576);
 
@@ -25,7 +25,7 @@ const ProductList = (props) => {
     }, []);
 
     return (
-        <div className='container'>
+        <div className=''>
             {
                 props.isDesc
                     ? <center>
@@ -42,7 +42,7 @@ const ProductList = (props) => {
                         {
                             props.data.map((item, index) => {
                                 return (
-                                    <div key={index} className="col-6 col-lg-3 col-md-4 col-sm-4">
+                                    <div key={index} className="col-12">
                                         <ProductCard type={props.type} data={item} isLargeScreen={isLargeScreen} />
                                     </div>
                                 )
@@ -63,4 +63,4 @@ const ProductList = (props) => {
     )
 }
 
-export default ProductList;
+export default CartList;

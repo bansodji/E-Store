@@ -53,13 +53,15 @@ const Button = styled.button`
     }
 `;
 
-const CartButton = ({ data }) => {
+const CartButton = ({ data, quantity=1, color=1 }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
 
   const exists = cart.some(product => product.id === data.id);
 
   const handleClick = () => {
+    data.quantity = quantity; 
+    data.color = color;
     dispatch(addCart(data));
   }
 

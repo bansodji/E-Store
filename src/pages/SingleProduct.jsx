@@ -121,6 +121,7 @@ const SingleProduct = ({ Data }) => {
   const [product, setProduct] = useState(null);
   const [displayImg, setDisplayImg] = useState(null);
   const [activeColor, setActiveColor] = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
   const handleImgClick = (data) => {
     setDisplayImg(data);
@@ -167,10 +168,10 @@ const SingleProduct = ({ Data }) => {
   const Quantity = () => {
     const stock = product.stock;
     const [subtotal, setSubtotal] = useState(0);
-    const [quantity, setQuantity] = useState(1);
+    
 
     const handleClick = (action) => {
-      if (action === 'decrement' && quantity > 0) {
+      if (action === 'decrement' && quantity > 1) {
         setQuantity(prevQuantity => prevQuantity - 1);
       } else if (action === 'increment' && quantity < stock) {
         setQuantity(prevQuantity => prevQuantity + 1);
@@ -234,7 +235,7 @@ const SingleProduct = ({ Data }) => {
                     {/* buttons */}
                     <div className='buttons row g-2'>
                       <div className="col">
-                        <CartButton data={product} />
+                        <CartButton data={product} color={activeColor} quantity={quantity} />
                       </div>
                       <div className="col">
                         <WishlistButton data={product} />
@@ -299,7 +300,7 @@ const SingleProduct = ({ Data }) => {
                     <Quantity />
 
                     <div className="col-12">
-                      <CartButton data={product} />
+                      <CartButton data={product} color={activeColor} quantity={quantity} />
                     </div>
 
                   </div>

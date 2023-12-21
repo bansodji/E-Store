@@ -55,7 +55,7 @@ const Container = styled.div`
     }
 `;
 
-const ProductCard = ({ data, isLargeScreen }) => {
+const ProductCard = ({ data, isLargeScreen, type="wishlist"}) => {
     const dispatch = useDispatch();
 
     return (

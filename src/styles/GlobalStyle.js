@@ -40,6 +40,12 @@ body {
     color: ${({ theme }) => theme.colors.theme1};
 }
 
+.surface-bg{
+    background-color: ${({ theme }) => theme.colors.surface};
+}
+
+
+
 a{
     text-decoration: none;
     cursor: pointer;

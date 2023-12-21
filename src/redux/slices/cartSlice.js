@@ -7,8 +7,13 @@ const cartSlice = createSlice({
         addCart: (state, action) => {
             state.items.push(action.payload); // Modifying the 'items' array directly
         },
+        removeCart: (state, action) => {
+            const itemIdToRemove = action.payload;
+            state.items = state.items.filter(item => item.id !== itemIdToRemove);
+            // Assuming each item in the wishlist has a unique 'id' property
+        },
     },
 });
 
-export const { addCart } = cartSlice.actions;
+export const { addCart,removeCart } = cartSlice.actions;
 export default cartSlice.reducer;
