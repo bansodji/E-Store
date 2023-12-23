@@ -19,6 +19,7 @@ import ItemsByCategory from './pages/ItemsByCategory';
 import LoadMoreData from './pages/LoadMoreData';
 import Wishlist from './pages/Wishlist';
 import Cart from './pages/Cart';
+import Signin from './pages/Signin';
 
 const App = () => {
   const products = useContext(ProductContext);
@@ -138,6 +139,7 @@ const App = () => {
         <Route exact path="/search" element={<Search Data={products} />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/wishlist" element={<Wishlist />} />
+        <Route exact path="/Signin" element={<Signin />} />
         <Route path="*" element={<Home data={products} />} />
       </Routes>
       <Footer />
